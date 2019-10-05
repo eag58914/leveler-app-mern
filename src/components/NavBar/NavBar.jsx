@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 const NavBar = (props) => {
 	let nav = props.user ? (
 		<div>
-			<Link to="/high-scores" className="NavBar-link">
-				HIGH SCORES
-			</Link>
-			&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<Link to="" className="NavBar-link">
+			<Link to="" className="NavBar-link" onClick={props.handleLogout}>
 				LOG OUT
 			</Link>
 			&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -28,4 +24,5 @@ const NavBar = (props) => {
 
 	return <div className="NavBar">{nav}</div>;
 };
+
 export default NavBar;
