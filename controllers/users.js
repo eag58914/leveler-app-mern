@@ -1,10 +1,10 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-
 const SECRET = process.env.SECRET;
 
 module.exports = {
-	signup
+	signup,
+	login
 };
 
 async function signup(req, res) {
@@ -14,15 +14,27 @@ async function signup(req, res) {
 		const token = createJWT(user);
 		res.json({ token });
 	} catch (err) {
-		// Probably a duplicate email
 		res.status(400).json(err);
 	}
 }
 
 function createJWT(user) {
-	return jwt.sign(
-		{ user }, // data payload
-		SECRET,
-		{ expiresIn: '24h' }
-	);
+	return jwt.sign({ user }, SECRET, { expiresIn: '24h' });
+}
+
+async function login(req, res) {
+	try {
+		const user = await User.findOne({ email: req.body.email });
+		if (!user) return res.status(401).json({ err: 'Invalid credentials' });
+		user.comparePassword(req.body.pw, (err, isMatch) => {
+			if (isMatch) {
+				const token = createJWT(user);
+				res.json({ token });
+			} else {
+				return res.status(401).json({ err: 'Invalid credentials' });
+			}
+		});
+	} catch (err) {
+		return res.status(401).json(err);
+	}
 }
