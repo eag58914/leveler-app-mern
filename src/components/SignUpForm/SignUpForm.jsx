@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import userService from '../../utils/userServices';
 
 class SignupForm extends Component {
 	state = {
@@ -16,6 +17,23 @@ class SignupForm extends Component {
 			[e.target.name]: e.target.value
 		});
 	};
+
+	handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			await userService.signup(this.state);
+			// Successfully signed up
+			this.props.handleSignupOrLogin();
+			this.props.history.push('/');
+		} catch (err) {
+			// Invalid user data (probably duplicate email)
+			this.props.updateMessage(err.message);
+		}
+	};
+
+	isFormInvalid() {
+		return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+	}
 
 	render() {
 		return (
@@ -72,7 +90,9 @@ class SignupForm extends Component {
 					</div>
 					<div className="form-group">
 						<div className="col-sm-12 text-center">
-							<button className="btn btn-default">Sign Up</button>&nbsp;&nbsp;
+							<button className="btn btn-default" disabled={this.isFormInvalid()}>
+								Sign Up
+							</button>&nbsp;&nbsp;
 							<Link to="/">Cancel</Link>
 						</div>
 					</div>
