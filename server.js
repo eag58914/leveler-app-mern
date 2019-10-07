@@ -17,7 +17,7 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 //api route, hopfully works
-app.use('/api', require('./routes/api/post_index'));
+app.use('/api', require('./routes/api/post_api'));
 
 app.use('/api/users', require('./routes/api/users'));
 
