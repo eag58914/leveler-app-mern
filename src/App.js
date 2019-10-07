@@ -4,12 +4,29 @@ import { Route, Switch } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignUpPage';
 import userService from './utils/userServices';
 import NavBar from '../src/components/NavBar/NavBar';
+import MainPost from './components/MainPost/MainPost';
+import PostForm from './components/PostForm/PostForm';
 
 class App extends Component {
 	state = {
 		user: userService.getUser(),
 		isShowing: true,
 		posts: []
+	};
+
+	componentDidMount = () => {
+		getAll().then((results) => {
+			console.log('started line 17:::', results); // this comes back as an arry of objects
+			this.setState({
+				posts: results // we do not need to spread it becuase we are just updating the posts to hold the arry of obj
+			});
+		});
+	};
+
+	handleShowForm = (event) => {
+		this.setState({
+			isShowing: !this.state.isShowing
+		});
 	};
 
 	handleLogout = () => {
@@ -41,6 +58,9 @@ class App extends Component {
 	};
 
 	render() {
+		const allPosts = this.state.posts.map((item, index) => {
+			return <MainPost key={index} user={item.author} content={item.post} id={index} />;
+		});
 		return (
 			<div className="App">
 				<header className="App-header">
@@ -61,6 +81,13 @@ class App extends Component {
 						)}
 					/>
 				</Switch>
+
+				{!this.state.isShowing ? (
+					<PostForm handleAddPost={this.handleAddPost} handleToggle={this.handleToggle} />
+				) : (
+					<button onClick={this.handleShowForm}>Add Post</button>
+				)}
+				<ul>{allPosts}</ul>
 			</div>
 		);
 	}
@@ -70,7 +97,7 @@ export default App;
 
 //get all post,TODO: set up routes and controller to get all the post
 async function getAll() {
-	const url = 'http://localhost:3000/api/post_api/posts';
+	const url = 'http://localhost:3000/api/posts';
 	const initialFetch = await fetch(url);
 	const fetchJSON = await initialFetch.json();
 	return await fetchJSON;
