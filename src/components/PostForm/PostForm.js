@@ -5,8 +5,10 @@ class PostForm extends Component {
 	state = {
 		author: '',
 		post: '',
-		votes: ''
+		votes: '',
+		isShowing: true
 	};
+
 	handleOnChange = (event) => {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -16,6 +18,11 @@ class PostForm extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.props.handleAddPost({ ...this.state });
+		this.setState({
+			author: '',
+			post: '',
+			votes: ''
+		});
 	};
 
 	render() {
