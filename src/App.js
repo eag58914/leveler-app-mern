@@ -7,7 +7,8 @@ import NavBar from '../src/components/NavBar/NavBar';
 
 class App extends Component {
 	state = {
-		user: userService.getUser()
+		user: userService.getUser(),
+		isShowing: true
 	};
 
 	handleLogout = () => {
