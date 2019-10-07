@@ -8,7 +8,8 @@ import NavBar from '../src/components/NavBar/NavBar';
 class App extends Component {
 	state = {
 		user: userService.getUser(),
-		isShowing: true
+		isShowing: true,
+		posts: []
 	};
 
 	handleLogout = () => {
@@ -18,6 +19,25 @@ class App extends Component {
 
 	handleSignupOrLogin = () => {
 		this.setState({ user: userService.getUser() });
+	};
+
+	//these funciton handle all the CRUD for posts/ need to update to upload photos
+
+	handleAddPost = ({ author, post, votes }) => {
+		const url = 'http://localhost:3000/api/create';
+		const options = {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({ author, post, votes })
+		};
+		handleVerbs(url, options).then((results) => {
+			console.log(results);
+			this.setState({
+				posts: [ ...this.state.posts, results ]
+			});
+		});
 	};
 
 	render() {
@@ -47,3 +67,14 @@ class App extends Component {
 }
 
 export default App;
+
+//get all post,TODO: set up routes and controller to get all the post
+async function getAll() {
+	const url = 'http://localhost:3000/api/post_api';
+}
+
+async function handleVerbs(url, options) {
+	const initalFetch = await fetch(url, options);
+	const fetchJSON = await initalFetch.json();
+	return await fetchJSON;
+}
