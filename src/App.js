@@ -57,9 +57,24 @@ class App extends Component {
 		});
 	};
 
+	handleDeletePost = (id) => {
+		let newState = this.state.posts.filter((item) => this.state.posts[id] !== item);
+		this.setState({
+			posts: newState
+		});
+	};
+
 	render() {
 		const allPosts = this.state.posts.map((item, index) => {
-			return <MainPost key={index} user={item.author} content={item.post} id={index} />;
+			return (
+				<MainPost
+					key={index}
+					user={item.author}
+					content={item.post}
+					id={index}
+					handleDelete={this.handleDeletePost}
+				/>
+			);
 		});
 		return (
 			<div className="App">
