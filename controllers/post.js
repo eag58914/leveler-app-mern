@@ -14,5 +14,5 @@ function createPost(req, res) {
 }
 
 function getAllPosts(req, res) {
-	Post.find({}).then((posts) => {}).catch((error) => res.status(500).json(error.message));
+	Post.find({}).then((posts) => ({}.catch((error) => res.status(500).json(error.message))));
 }
