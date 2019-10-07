@@ -4,7 +4,7 @@ var postCtrl = require('../../controllers/post');
 
 //routes for adding and showing posts/possbily renaming later
 router.get('/posts', postCtrl.getAllPosts);
-
 router.post('/create', postCtrl.createPost);
+router.delete('/post/:id', postCtrl.deletePost);
 
 module.exports = router;
