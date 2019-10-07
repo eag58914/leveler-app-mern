@@ -83,7 +83,7 @@ class App extends Component {
 				</Switch>
 
 				{!this.state.isShowing ? (
-					<PostForm handleAddPost={this.handleAddPost} handleToggle={this.handleToggle} />
+					<PostForm handleAddPost={this.handleAddPost} handleToggle={this.handleShowForm} />
 				) : (
 					<button onClick={this.handleShowForm}>Add Post</button>
 				)}
@@ -97,7 +97,7 @@ export default App;
 
 //get all post,TODO: set up routes and controller to get all the post
 async function getAll() {
-	const url = 'http://localhost:3000/api/posts';
+	const url = '/api/posts';
 	const initialFetch = await fetch(url);
 	const fetchJSON = await initialFetch.json();
 	return await fetchJSON;
