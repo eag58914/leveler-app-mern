@@ -70,7 +70,10 @@ export default App;
 
 //get all post,TODO: set up routes and controller to get all the post
 async function getAll() {
-	const url = 'http://localhost:3000/api/post_api';
+	const url = 'http://localhost:3000/api/post_api/posts';
+	const initialFetch = await fetch(url);
+	const fetchJSON = await initialFetch.json();
+	return await fetchJSON;
 }
 
 async function handleVerbs(url, options) {
