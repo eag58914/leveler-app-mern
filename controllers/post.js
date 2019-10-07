@@ -1,7 +1,8 @@
 const Post = require('../models/post');
 
 module.exports = {
-	createPost
+	createPost,
+	getAllPosts
 };
 
 function createPost(req, res) {
@@ -10,4 +11,8 @@ function createPost(req, res) {
 			res.status(201).json(post);
 		})
 		.catch((error) => res.status(500).json(error.message));
+}
+
+function getAllPosts(req, res) {
+	Post.find({}).then((posts) => {}).catch((error) => res.status(500).json(error.message));
 }
