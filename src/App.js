@@ -23,7 +23,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					MyKitchen
+					Leveler
 					<NavBar user={this.state.user} handleLogout={this.handleLogout} />
 				</header>
 				<Switch>
