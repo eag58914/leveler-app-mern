@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -49,9 +50,8 @@ class PostForm extends Component {
 					</div>
 					<input type="submit" />
 				</form>
-				<button className="button-primary" onClick={this.handleShowForm}>
-					{this.state.isShowing ? 'ON' : 'OFF'}
-				</button>
+
+				<Link to="/">Home</Link>
 			</div>
 		);
 	}
