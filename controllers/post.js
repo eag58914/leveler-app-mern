@@ -15,7 +15,11 @@ function createPost(req, res) {
 }
 
 function getAllPosts(req, res) {
-	Post.find({}).then((posts) => ({}.catch((error) => res.status(500).json(error.message))));
+	Post.find({})
+		.then((posts) => {
+			res.status(201).json(posts);
+		})
+		.catch((error) => res.status(500).json(error.message));
 }
 
 function deletePost(req, res) {
