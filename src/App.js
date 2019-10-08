@@ -58,9 +58,20 @@ class App extends Component {
 	};
 
 	handleDeletePost = (id) => {
-		let newState = this.state.posts.filter((item) => this.state.posts[id] !== item);
-		this.setState({
-			posts: newState
+		const url = `http://localhost:3000/api/:${id}`;
+		const options = {
+			method: 'DELETE',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({ id })
+		};
+		handleVerbs(url, options).then((results) => {
+			console.log(results);
+			let newState = this.state.posts.filter((item) => this.state.posts[id] !== item);
+			this.setState({
+				posts: newState
+			});
 		});
 	};
 
@@ -99,7 +110,7 @@ class App extends Component {
 				</Switch>
 
 				{this.state.user ? (
-					<PostForm handleAddPost={this.handleAddPost} handleToggle={this.handleShowForm} />
+					<PostForm handleAddPost={this.handleAddPost} />
 				) : (
 					<button onClick={this.handleShowForm}>Add Post</button>
 				)}
