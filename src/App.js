@@ -73,6 +73,7 @@ class App extends Component {
 					content={item.post}
 					id={index}
 					handleDelete={this.handleDeletePost}
+					votes={item.votes}
 				/>
 			);
 		});
@@ -97,7 +98,7 @@ class App extends Component {
 					/>
 				</Switch>
 
-				{!this.state.isShowing ? (
+				{this.state.user ? (
 					<PostForm handleAddPost={this.handleAddPost} handleToggle={this.handleShowForm} />
 				) : (
 					<button onClick={this.handleShowForm}>Add Post</button>
