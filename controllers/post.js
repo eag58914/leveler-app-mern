@@ -23,9 +23,10 @@ function getAllPosts(req, res) {
 }
 
 function deletePost(req, res) {
+	console.log(req.params.id);
 	Post.findByIdAndRemove(req.params.id)
-		.then((blog) => {
-			res.status(200).json(blog);
+		.then((post) => {
+			res.status(200).json(post);
 		})
 		.catch((error) => res.status(500).json(error.message));
 }
