@@ -4,9 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignUpPage';
 import userService from './utils/userServices';
 import NavBar from '../src/components/NavBar/NavBar';
-import PostForm from './components/PostForm/PostForm';
 
 import MainPostPage from './pages/MainPostPage/MainPostPage';
+import AddPostPage from './pages/AddPostPage/AddPostPage';
 
 //all post api imports
 import * as postAPI from './services/post-api';
@@ -41,8 +41,8 @@ class App extends Component {
 	};
 
 	//these funciton handle all the CRUD for posts/ need to update to upload photos
-	handleAddPost = async ({ author, post, votes }) => {
-		const newPost = await postAPI.create(author, post, votes);
+	handleAddPost = async (newPostData) => {
+		const newPost = await postAPI.create(newPostData);
 		this.setState(
 			(state) => ({
 				posts: [ ...state.posts, newPost ]
@@ -106,14 +106,9 @@ class App extends Component {
 							<SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
 						)}
 					/>
-					<Route exact path="/" render={({ history }) => <MainPostPage posts={this.state.posts} />} />>
+					<Route exact path="/" render={({ history }) => <MainPostPage posts={this.state.posts} />} />
+					<Route exact path="/add_post" render={() => <AddPostPage handleAddPost={this.handleAddPost} />} />
 				</Switch>
-
-				{this.state.user ? (
-					<PostForm handleAddPost={this.handleAddPost} />
-				) : (
-					<button onClick={this.handleShowForm}>Add Post</button>
-				)}
 			</div>
 		);
 	}
