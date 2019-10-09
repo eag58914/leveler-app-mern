@@ -10,9 +10,11 @@ const app = express();
 
 var apiRouter = require('./routes/api/post_api');
 var userRouter = require('./routes/api/users');
+var imageRouter = require('./routes/api/images_uploader');
 
 app.use(cors());
 app.use(logger('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
@@ -20,6 +22,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //api route, hopefully works
 app.use('/api', apiRouter);
+
+app.use('/api/images', imageRouter);
 
 app.use('/api/users', userRouter);
 
