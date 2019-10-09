@@ -8,13 +8,14 @@ function PostPageList(props) {
 			<div>
 				{props.posts.map((item, index) => (
 					<MainPost
-						key={index}
+						key={item._id}
 						user={item.author}
 						content={item.post}
-						id={index}
+						id={item._id}
 						votes={item.votes}
 						comments={item.comments}
 						handleDeletePost={props.handleDeletePost}
+						client={props.user}
 					/>
 				))}
 			</div>
