@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { Route, Switch } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignUpPage';
-import userService from './utils/userServices';
+import userService from './services/userServices';
 import NavBar from '../src/components/NavBar/NavBar';
 
 import MainPostPage from './pages/MainPostPage/MainPostPage';

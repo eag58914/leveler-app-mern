@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './PostForm.module.css';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -41,8 +42,8 @@ class PostForm extends Component {
 			<div>
 				<form className="post-form" onSubmit={this.handleSubmit}>
 					<div>
-						<label>Author</label>
-						<input type="text" name="author" onChange={this.handleOnChange} value={this.state.author} />
+						<label>Title</label>
+						<input type="text" name="title" onChange={this.handleOnChange} value={this.state.author} />
 					</div>
 					<div>
 						<label>Post</label>
