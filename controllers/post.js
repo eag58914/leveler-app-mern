@@ -3,7 +3,8 @@ const Post = require('../models/post');
 module.exports = {
 	createPost,
 	getAllPosts,
-	deletePost
+	deletePost,
+	showPost
 };
 
 function createPost(req, res) {
@@ -26,6 +27,11 @@ async function deletePost(req, res) {
 	const deletedPost = await Post.findByIdAndRemove(req.params.id);
 
 	res.status(200).json(deletedPost);
+}
+
+async function showPost(req, res) {
+	const post = await Post.findById(req.params.id);
+	res.status(201).json(post);
 }
 
 //need to  figure  out eidt functionality
