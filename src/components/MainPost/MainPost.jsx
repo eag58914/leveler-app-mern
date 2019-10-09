@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const MainPost = ({ content, user, id, handleDelete, votes }) => {
 	console.log(votes, content, user, handleDelete);
 	return (
-		<li key={id} className="post">
+		<li key={id}>
 			<p>{content}</p>
 			<p>{user}</p>
 			<p>{votes}</p>
