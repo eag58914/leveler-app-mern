@@ -22,13 +22,10 @@ function getAllPosts(req, res) {
 		.catch((error) => res.status(500).json(error.message));
 }
 
-function deletePost(req, res) {
-	console.log(req.params.id);
-	Post.findByIdAndRemove(req.params.id)
-		.then((post) => {
-			res.status(200).json(post);
-		})
-		.catch((error) => res.status(500).json(error.message));
+async function deletePost(req, res) {
+	const deletedPost = await Post.findByIdAndRemove(req.params.id);
+
+	res.status(200).json(deletedPost);
 }
 
 //need to  figure  out eidt functionality
