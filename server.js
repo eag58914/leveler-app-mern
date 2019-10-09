@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 //api route, hopefully works
 app.use('/api', apiRouter);
 
-app.use('/api/images', imageRouter);
+//app.use('/api/images', imageRouter);
 
 app.use('/api/users', userRouter);
 
