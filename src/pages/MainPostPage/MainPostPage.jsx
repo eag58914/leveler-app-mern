@@ -7,7 +7,14 @@ function PostPageList(props) {
 			<h1>My Posts</h1>
 			<div>
 				{props.posts.map((item, index) => (
-					<MainPost key={index} user={item.author} content={item.post} id={index} votes={item.votes} />
+					<MainPost
+						key={index}
+						user={item.author}
+						content={item.post}
+						id={index}
+						votes={item.votes}
+						handleDeletePost={props.handleDeletePost}
+					/>
 				))}
 			</div>
 		</div>
