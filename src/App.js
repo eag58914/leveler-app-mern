@@ -61,41 +61,6 @@ class App extends Component {
 		);
 	};
 
-	// handleAddPost = ({ author, post, votes }) => {
-	// 	const url = 'http://localhost:3000/api/create';
-	// 	const options = {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'content-type': 'application/json'
-	// 		},
-	// 		body: JSON.stringify({ author, post, votes })
-	// 	};
-	// 	handleVerbs(url, options).then((results) => {
-	// 		console.log(results);
-	// 		this.setState({
-	// 			posts: [ ...this.state.posts, results ]
-	// 		});
-	// 	});
-	// };
-
-	// handleDeletePost = (id) => {
-	// 	const url = `http://localhost:3000/api/:${id}`;
-	// 	const options = {
-	// 		method: 'DELETE',
-	// 		headers: {
-	// 			'content-type': 'application/json'
-	// 		},
-	// 		body: JSON.stringify({ id })
-	// 	};
-	// 	handleVerbs(url, options).then((results) => {
-	// 		console.log(results);
-	// 		let newState = this.state.posts.filter((item) => this.state.posts[id] !== item);
-	// 		this.setState({
-	// 			posts: newState
-	// 		});
-	// 	});
-	// };
-
 	render() {
 		return (
 			<div className="App">
@@ -131,17 +96,3 @@ class App extends Component {
 }
 
 export default App;
-
-//get all post,TODO: set up routes and controller to get all the post
-// async function getAll() {
-// 	const url = '/api/posts';
-// 	const initialFetch = await fetch(url);
-// 	const fetchJSON = await initialFetch.json();
-// 	return await fetchJSON;
-// }
-
-// async function handleVerbs(url, options) {
-// 	const initalFetch = await fetch(url, options);
-// 	const fetchJSON = await initalFetch.json();
-// 	return await fetchJSON;
-// }
