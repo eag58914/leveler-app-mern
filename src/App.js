@@ -51,6 +51,16 @@ class App extends Component {
 		);
 	};
 
+	handleDeletePost = async (id) => {
+		await postAPI.deleteOne(id);
+		this.setState(
+			(state) => ({
+				posts: state.posts.filter((p) => p._id !== id)
+			}),
+			() => this.props.history.push('/')
+		);
+	};
+
 	// handleAddPost = ({ author, post, votes }) => {
 	// 	const url = 'http://localhost:3000/api/create';
 	// 	const options = {
@@ -106,7 +116,13 @@ class App extends Component {
 							<SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
 						)}
 					/>
-					<Route exact path="/" render={({ history }) => <MainPostPage posts={this.state.posts} />} />
+					<Route
+						exact
+						path="/"
+						render={({ history }) => (
+							<MainPostPage posts={this.state.posts} handleDeletePost={this.handleDeletePost} />
+						)}
+					/>
 					<Route exact path="/add_post" render={() => <AddPostPage handleAddPost={this.handleAddPost} />} />
 				</Switch>
 			</div>
