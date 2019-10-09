@@ -15,4 +15,4 @@ var ImageSchema = new Schema({
 	}
 });
 
-module.exports('Image', ImageSchema);
+module.exports = ('Image', ImageSchema);
