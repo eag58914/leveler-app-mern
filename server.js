@@ -10,7 +10,7 @@ const app = express();
 
 var apiRouter = require('./routes/api/post_api');
 var userRouter = require('./routes/api/users');
-var imageRouter = require('./routes/api/images_uploader');
+// var imageRouter = require('./routes/api/images_uploader');
 
 app.use(cors());
 app.use(logger('dev'));
