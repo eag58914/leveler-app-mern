@@ -14,8 +14,8 @@ class commentForm extends Component {
 		});
 	};
 	handleSubmit = (event) => {
-		event.preventdefault();
-		this.props.handleAddComment(this.state);
+		event.preventDefault();
+		this.props.handleAddComment(this.props.id, this.state.comment);
 		this.setState({
 			comment: ''
 		});
@@ -27,6 +27,7 @@ class commentForm extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<label>Comment</label>
 					<input type="text" name="comment" onChange={this.handleOnChange} value={this.state.comment} />
+					<input type="submit" className="mx-auto" />
 				</form>
 			</div>
 		);
