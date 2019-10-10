@@ -10,19 +10,25 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 		<div className="card col-sm-8" align="center">
 			<div className="card-body " align="center">
 				<li className={styles.MainPost}>
+					<h4>Title:</h4>
 					<p>{user}</p>
+					<h3>Post:</h3>
 					<p>{content}</p>
-					<button>upvote</button>
-					<p>{votes}</p>
-					<button>downvote</button>
+					<div className={styles.ButtonLayout}>
+						<button>upvote</button>
+						<p>{votes}</p>
+						<button>downvote</button>
+						<Link to="/add_comment">
+							<button class="btn btn-outline-primary">add comment</button>
+						</Link>
+						{client ? (
+							<button onClick={() => handleDeletePost(id)} class="btn btn-outline-danger">
+								X
+							</button>
+						) : null}
+					</div>
 					<h6>Comments</h6>
 					<Comments comments={comments} />
-					<Link to="/add_comments" />Add Comments
-					{client ? (
-						<button onClick={() => handleDeletePost(id)} className="button">
-							Deletes
-						</button>
-					) : null}
 				</li>
 			</div>
 		</div>
