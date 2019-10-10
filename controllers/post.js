@@ -4,7 +4,8 @@ module.exports = {
 	createPost,
 	getAllPosts,
 	deletePost,
-	showPost
+	showPost,
+	addComment
 };
 
 function createPost(req, res) {
@@ -28,10 +29,16 @@ async function deletePost(req, res) {
 
 	res.status(200).json(deletedPost);
 }
-
 async function showPost(req, res) {
 	const post = await Post.findById(req.params.id);
 	res.status(201).json(post);
+}
+async function addComment(req, res) {
+	const post = await Post.findById(req.body._id);
+	const newComment = await post.comments.push(req.body);
+	post.save();
+	res.status(201).json(newComment);
+	// .catch((error) => res.status(500).json(error.message));
 }
 
 //need to  figure  out eidt functionality
