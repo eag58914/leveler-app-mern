@@ -12,15 +12,16 @@ export function create(post) {
 	}).then((res) => res.json());
 }
 
-//delete function is not grabbing the ID talk to Chris
 export function deleteOne(id) {
 	return fetch(`${BASE_URL}/${id}`, {
 		method: 'DELETE'
 	}).then((res) => res.json());
 }
 
-export function getOne(id) {
+export function getOne(id, comment) {
 	return fetch(`${BASE_URL}/${id}`, {
-		method: 'GET'
+		method: 'POST',
+		headers: { 'content-type': 'application/json' },
+		body: JSON.stringify({ comment })
 	}).then((res) => res.json());
 }
