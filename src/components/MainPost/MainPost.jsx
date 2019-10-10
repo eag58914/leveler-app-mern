@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './MainPost.module.css';
-import Comments from '../Comments/Comments';
+
 import { Link } from 'react-router-dom';
 
-const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client }) => {
+const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client, handleId }) => {
+	const allComments = comments.map((comment) => {
+		return <p>{comment.content}</p>;
+	});
 	console.log(votes, content, user, handleDeletePost);
 	return (
 		<div className="card col-sm-8" align="center">
@@ -19,7 +22,9 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 						<p>{votes}</p>
 						<button>downvote</button>
 						<Link to="/add_comment">
-							<button class="btn btn-outline-primary">add comment</button>
+							<button class="btn btn-outline-primary" onClick={() => handleId(id)}>
+								add comment
+							</button>
 						</Link>
 						{client ? (
 							<button onClick={() => handleDeletePost(id)} class="btn btn-outline-danger">
@@ -27,8 +32,8 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 							</button>
 						) : null}
 					</div>
-					<h6>Comments</h6>
-					<Comments comments={comments} />
+					<h6>Comments:</h6>
+					<div>{allComments}</div>
 				</li>
 			</div>
 		</div>
@@ -44,5 +49,6 @@ MainPost.propTypes = {
 	handleDelete: PropTypes.func,
 	votes: PropTypes.number,
 	comments: PropTypes.string,
-	client: PropTypes.string
+	client: PropTypes.string,
+	handleId: PropTypes.func
 };
