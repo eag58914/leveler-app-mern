@@ -16,7 +16,8 @@ class App extends Component {
 	state = {
 		user: userService.getUser(),
 		isShowing: true,
-		posts: []
+		posts: [],
+		id: ''
 	};
 	/*--Lifecycle Methods for posting--*/
 	async componentDidMount() {
@@ -70,6 +71,16 @@ class App extends Component {
 			},
 			() => this.props.history.push('/')
 		);
+		const posts = await postAPI.getAll();
+		this.setState({
+			posts
+		});
+	};
+
+	handleId = async (id) => {
+		this.setState({
+			id: id
+		});
 	};
 
 	//figuring out how to show a specific form
@@ -111,6 +122,7 @@ class App extends Component {
 								posts={this.state.posts}
 								handleDeletePost={this.handleDeletePost}
 								user={this.state.user}
+								handleId={this.handleId}
 							/>
 						)}
 					/>
@@ -118,8 +130,7 @@ class App extends Component {
 					<Route
 						exact
 						path="/add_comment"
-						render={() => <AddCommentPage />}
-						handleAddComment={this.handleAddComment}
+						render={() => <AddCommentPage id={this.state.id} handleAddComment={this.handleAddComment} />}
 					/>
 				</Switch>
 			</div>
