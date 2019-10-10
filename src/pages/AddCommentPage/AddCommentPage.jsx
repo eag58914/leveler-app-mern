@@ -1,7 +1,7 @@
 import React from 'react';
-import commentForm from '../../components/CommentForm/CommentForm';
-const AddCommentPage = () => {
-	return <commentForm />;
+import CommentForm from '../../components/CommentForm/CommentForm';
+const AddCommentPage = (props) => {
+	return <CommentForm handleAddComment={props.handleAddComment} />;
 };
 
 export default AddCommentPage;
