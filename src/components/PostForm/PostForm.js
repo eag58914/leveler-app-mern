@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './PostForm.module.css';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -66,7 +65,7 @@ class PostForm extends Component {
 
 				<Link to="/">
 					<div className="button" align="center">
-						<button>Home</button>
+						<button>Cancel</button>
 					</div>
 				</Link>
 			</div>
