@@ -1,3 +1,9 @@
 .MainPost {
 	list-style: none;
 }
+
+.ButtonLayout {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
