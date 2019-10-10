@@ -33,11 +33,11 @@ class LoginPage extends Component {
 
 	render() {
 		return (
-			<div className="LoginPage">
+			<div className="LoginPage" align="center">
 				<header className="header-footer">Log In</header>
 				<form className="form-horizontal" onSubmit={this.handleSubmit}>
 					<div className="form-group">
-						<div className="col-sm-12">
+						<div className="col-sm-5">
 							<input
 								type="email"
 								className="form-control"
@@ -49,7 +49,7 @@ class LoginPage extends Component {
 						</div>
 					</div>
 					<div className="form-group">
-						<div className="col-sm-12">
+						<div className="col-sm-5">
 							<input
 								type="password"
 								className="form-control"
@@ -61,8 +61,8 @@ class LoginPage extends Component {
 						</div>
 					</div>
 					<div className="form-group">
-						<div className="col-sm-12 text-center">
-							<button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
+						<div className="col-sm-5 text-center">
+							<button className="btn btn-default text center">Log In</button>&nbsp;&nbsp;&nbsp;
 							<Link to="/">Cancel</Link>
 						</div>
 					</div>

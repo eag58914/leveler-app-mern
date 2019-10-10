@@ -4,8 +4,8 @@ import MainPost from '../../components/MainPost/MainPost';
 function PostPageList(props) {
 	return (
 		<div>
-			<h1>All Posts</h1>
-			<div>
+			<h3 align="center">All Posts</h3>
+			<div align="center">
 				{props.posts.map((item, index) => (
 					<MainPost
 						key={item._id}
