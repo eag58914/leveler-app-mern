@@ -19,9 +19,9 @@ export function deleteOne(id) {
 }
 
 export function getOne(id, comment) {
-	return fetch(`${BASE_URL}/${id}`, {
+	return fetch(`${BASE_URL}/comment`, {
 		method: 'POST',
 		headers: { 'content-type': 'application/json' },
-		body: JSON.stringify({ comment })
+		body: JSON.stringify({ id, content: comment })
 	}).then((res) => res.json());
 }
