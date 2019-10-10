@@ -46,19 +46,28 @@ class App extends Component {
 		const newPost = await postAPI.create(newPostData);
 		this.setState(
 			(state) => ({
-				posts: [ ...state.posts, newPost ]
+				posts: [ ...this.state.posts, newPost ]
 			}),
 			() => this.props.history.push('/')
 		);
 	};
 
 	handleDeletePost = async (id) => {
-		console.log(id);
 		await postAPI.deleteOne(id);
 		this.setState(
 			(state) => ({
 				posts: state.posts.filter((p) => p._id !== id)
 			}),
+			() => this.props.history.push('/')
+		);
+	};
+	handleAddComment = async (id, comment) => {
+		console.log(id);
+		await postAPI.getOne(id, comment);
+		this.setState(
+			{
+				posts: this.state.posts
+			},
 			() => this.props.history.push('/')
 		);
 	};
@@ -106,7 +115,12 @@ class App extends Component {
 						)}
 					/>
 					<Route exact path="/add_post" render={() => <AddPostPage handleAddPost={this.handleAddPost} />} />
-					<Route exact path="/add_comment" render={() => <AddCommentPage />} />
+					<Route
+						exact
+						path="/add_comment"
+						render={() => <AddCommentPage />}
+						handleAddComment={this.handleAddComment}
+					/>
 				</Switch>
 			</div>
 		);
