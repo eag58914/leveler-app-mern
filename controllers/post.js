@@ -34,7 +34,8 @@ async function showPost(req, res) {
 	res.status(201).json(post);
 }
 async function addComment(req, res) {
-	const post = await Post.findById(req.body._id);
+	console.log(req.body);
+	const post = await Post.findById(req.body.id);
 	const newComment = await post.comments.push(req.body);
 	post.save();
 	res.status(201).json(newComment);
