@@ -16,6 +16,7 @@ function PostPageList(props) {
 						comments={item.comments}
 						handleDeletePost={props.handleDeletePost}
 						client={props.user}
+						handleId={props.handleId}
 					/>
 				))}
 			</div>
