@@ -40,19 +40,35 @@ class PostForm extends Component {
 	render() {
 		return (
 			<div>
-				<form className="post-form" onSubmit={this.handleSubmit}>
+				<form className="post-form" align="center" onSubmit={this.handleSubmit}>
 					<div>
 						<label>Title</label>
-						<input type="text" name="title" onChange={this.handleOnChange} value={this.state.author} />
+						<input
+							type="text"
+							name="author"
+							onChange={this.handleOnChange}
+							value={this.state.author}
+							className="col-sm-4"
+						/>
 					</div>
 					<div>
 						<label>Post</label>
-						<input type="text" name="post" onChange={this.handleOnChange} value={this.state.post} />
+						<input
+							type="text"
+							name="post"
+							onChange={this.handleOnChange}
+							value={this.state.post}
+							className=" col-sm-8"
+						/>
 					</div>
-					<input type="submit" />
+					<input type="submit" className="mx-auto" />
 				</form>
 
-				<Link to="/">Home</Link>
+				<Link to="/">
+					<div className="button" align="center">
+						<button>Home</button>
+					</div>
+				</Link>
 			</div>
 		);
 	}
