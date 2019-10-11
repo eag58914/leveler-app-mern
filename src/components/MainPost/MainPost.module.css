@@ -1,9 +1,29 @@
 .MainPost {
 	list-style: none;
+	background-color: #f8f8f6;
+	padding: 10px;
 }
 
 .ButtonLayout {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+}
+
+.UpVote {
+	width: 25px;
+	height: 25px;
+}
+.DownVote {
+	width: 25px;
+	height: 25px;
+	transform: rotate(180deg) scaleX(-1);
+}
+.Content {
+	color: black;
+}
+.Comments {
+	border-style: solid;
+	border-color: grey;
+	border-radius: 5px;
 }
