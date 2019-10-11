@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginPage from './pages/LoginPage/LoginPage';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignUpPage';
 import userService from './services/userServices';
 import NavBar from '../src/components/NavBar/NavBar';
@@ -97,7 +97,9 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Leveler</h1>
+				<Link to="/">
+					<h1>Leveler</h1>
+				</Link>
 				<header className="App-header">
 					<NavBar user={this.state.user} handleLogout={this.handleLogout} />
 				</header>
