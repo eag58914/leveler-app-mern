@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client, handleId }) => {
 	const allComments = comments.map((comment) => {
-		return <p>{comment.content}</p>;
+		return <p className={styles.Comments}>{comment.content}</p>;
 	});
 	console.log(votes, content, user, handleDeletePost);
 	return (
@@ -16,13 +16,13 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 					<h4>Title:</h4>
 					<p>{user}</p>
 					<h3>Post:</h3>
-					<p>{content}</p>
+					<p className={styles.Content}>{content}</p>
 					<div className={styles.ButtonLayout}>
-						<button>upvote</button>
+						<input className={styles.UpVote} type="image" src="images/upvote-icon-17.jpg" alt="" />
 						<p>{votes}</p>
-						<button>downvote</button>
+						<input className={styles.DownVote} type="image" src="images/upvote-icon-17.jpg" alt="" />
 						<Link to="/add_comment">
-							<button class="btn btn-outline-primary" onClick={() => handleId(id)}>
+							<button className="btn btn-outline-primary" onClick={() => handleId(id)}>
 								add comment
 							</button>
 						</Link>

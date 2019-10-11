@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './PostForm.module.css';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -60,14 +61,16 @@ class PostForm extends Component {
 							className=" col-sm-8"
 						/>
 					</div>
-					<input type="submit" className="mx-auto" />
+					<input type="submit" className="btn btn-outline-primary" />
 				</form>
 
-				<Link to="/">
-					<div className="button" align="center">
-						<button>Cancel</button>
-					</div>
-				</Link>
+				<div className={styles.CancelButton}>
+					<Link to="/">
+						<div align="center">
+							<button class="btn btn-outline-danger">Cancel</button>
+						</div>
+					</Link>
+				</div>
 			</div>
 		);
 	}

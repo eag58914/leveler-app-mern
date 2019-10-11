@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import styles from './Comment.Form.module.css';
+import { Link } from 'react-router-dom';
 class commentForm extends Component {
 	constructor(props) {
 		super(props);
@@ -23,12 +24,19 @@ class commentForm extends Component {
 
 	render() {
 		return (
-			<div>
-				<form onSubmit={this.handleSubmit}>
-					<label>Comment</label>
-					<input type="text" name="comment" onChange={this.handleOnChange} value={this.state.comment} />
-					<input type="submit" className="mx-auto" />
-				</form>
+			<div className={styles.CommentSubmit} align="center">
+				<div>
+					<form onSubmit={this.handleSubmit}>
+						<label>Comment</label>
+						<input type="text" name="comment" onChange={this.handleOnChange} value={this.state.comment} />
+						<input type="submit" className="btn btn-outline-primary" />
+					</form>
+				</div>
+				<Link to="/">
+					<div>
+						<button class="btn btn-outline-danger">Cancel</button>
+					</div>
+				</Link>
 			</div>
 		);
 	}
