@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-require('dotenv').config({ path: '.env' });
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect('mongodb+srv://leveler:Albatross1894@cluster0-jli2d.mongodb.net/myapp?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
