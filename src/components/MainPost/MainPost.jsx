@@ -26,11 +26,11 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 								add comment
 							</button>
 						</Link>
-						{client ? (
+						{client ? null : (
 							<button onClick={() => handleDeletePost(id)} class="btn btn-outline-danger">
 								X
 							</button>
-						) : null}
+						)}
 					</div>
 					<h6>Comments:</h6>
 					<div>{allComments}</div>
