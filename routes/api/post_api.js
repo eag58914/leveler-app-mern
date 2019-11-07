@@ -9,4 +9,8 @@ router.get('/:id', postCtrl.showPost);
 router.delete('/:id', postCtrl.deletePost);
 router.post('/comment', postCtrl.addComment);
 
+//working on updating posts
+
+router.put('/:id', postCtrl.update);
+
 module.exports = router;
