@@ -5,7 +5,8 @@ module.exports = {
 	getAllPosts,
 	deletePost,
 	showPost,
-	addComment
+	addComment,
+	update
 };
 
 function createPost(req, res) {
@@ -40,6 +41,11 @@ async function addComment(req, res) {
 	post.save();
 	res.status(201).json(newComment);
 	// .catch((error) => res.status(500).json(error.message));
+}
+
+async function update(req, res) {
+	const updatedPosts = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+	res.status(200).json(updatedPosts);
 }
 
 //need to  figure  out eidt functionality
