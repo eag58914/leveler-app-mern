@@ -11,6 +11,7 @@ var commentSchema = new Schema(
 
 var PostSchema = new Schema({
 	author: { type: String },
+	category: { type: String },
 	post: { type: String },
 	votes: { type: Number },
 	comments: [ commentSchema ]
