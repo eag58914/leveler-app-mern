@@ -40,7 +40,6 @@ async function addComment(req, res) {
 	const newComment = await post.comments.push(req.body);
 	post.save();
 	res.status(201).json(newComment);
-	// .catch((error) => res.status(500).json(error.message));
 }
 
 async function update(req, res) {
@@ -48,7 +47,7 @@ async function update(req, res) {
 	res.status(200).json(updatedPosts);
 }
 
-//need to  figure  out eidt functionality
+//need to  figure  out editfunctionality
 // function edit(req,res){
 //     Post.findByIdAndUpdate(req.params.id).then(post=>{
 //         res.status(200).json(post)
