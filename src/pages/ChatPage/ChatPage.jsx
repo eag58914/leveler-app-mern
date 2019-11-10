@@ -12,6 +12,8 @@ const ChatPage = ({ location }) => {
 			const data = queryString.parse(location.search);
 
 			socket = io(ENDPOINT);
+			console.log(socket);
+			console.log(data);
 
 			setName(name);
 			setRoom(room);
