@@ -1,7 +1,26 @@
-import React from 'react';
-import ChatComponent from '../../components/Chat/Chat';
+import React, { useState, useEffect } from 'react';
+import queryString from 'query-string';
+import io from 'socket.io-client';
 
-const ChatPage = () => {
-	return <ChatComponent />;
+let socket;
+const ChatPage = ({ location }) => {
+	const [ name, setName ] = useState('');
+	const [ room, setRoom ] = useState('');
+	const ENDPOINT = 'localhost:5000';
+	useEffect(
+		() => {
+			const data = queryString.parse(location.search);
+
+			socket = io(ENDPOINT);
+
+			setName(name);
+			setRoom(room);
+			socket.emit('join', { name, room });
+		},
+		[ ENDPOINT, location.search ]
+	);
+	return <h1>Chat</h1>;
 };
 export default ChatPage;
+
+//need to figure out how to pass user name to the room and not have users type it in
