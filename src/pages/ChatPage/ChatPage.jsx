@@ -24,3 +24,5 @@ const ChatPage = ({ location }) => {
 export default ChatPage;
 
 //need to figure out how to pass user name to the room and not have users type it in
+
+//Okay, so the server are running and there is request to the socker server to the front end, however, it is being denied due to cors
