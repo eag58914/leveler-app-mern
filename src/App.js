@@ -8,6 +8,8 @@ import NavBar from '../src/components/NavBar/NavBar';
 import MainPostPage from './pages/MainPostPage/MainPostPage';
 import AddPostPage from './pages/AddPostPage/AddPostPage';
 import AddCommentPage from './pages/AddCommentPage/AddCommentPage';
+import Chatpage from './pages/ChatPage/ChatPage';
+import Joinpage from './pages/Joinpage/JoinPage';
 
 //all post api imports
 import * as postAPI from './services/post-api';
@@ -134,6 +136,8 @@ class App extends Component {
 						path="/add_comment"
 						render={() => <AddCommentPage id={this.state.id} handleAddComment={this.handleAddComment} />}
 					/>
+					<Route exact path="/chat" render={() => <Chatpage />} />
+					<Route exact path="/join" render={() => <Joinpage />} />
 				</Switch>
 			</div>
 		);
