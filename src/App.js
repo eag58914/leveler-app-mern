@@ -137,7 +137,7 @@ class App extends Component {
 						render={() => <AddCommentPage id={this.state.id} handleAddComment={this.handleAddComment} />}
 					/>
 					<Route exact path="/chat" component={Chatpage} />
-					<Route exact path="/join" render={() => <Joinpage />} />
+					<Route exact path="/join" component={Joinpage} />
 				</Switch>
 			</div>
 		);
