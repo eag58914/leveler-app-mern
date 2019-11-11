@@ -10,6 +10,10 @@ const NavBar = (props) => {
 				Add a Post
 			</Link>
 			&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+			<Link to="/join" className="NavBar-Link">
+				Join a Chat
+			</Link>
+			&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 			<Link to="" className="NavBar-link" onClick={props.handleLogout}>
 				LOG OUT
 			</Link>
