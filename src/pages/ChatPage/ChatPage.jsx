@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import './ChatPage.css';
+import InfoBar from '../../components/InfoBar/InforBar';
 
 let socket;
 const ChatPage = ({ location }) => {
 	const [ name, setName ] = useState('');
 	const [ room, setRoom ] = useState('');
+	const [ messages, setMessages ] = useState([]);
+	const [ message, setMessage ] = useState('');
 	const ENDPOINT = 'localhost:5000';
 	useEffect(
 		() => {
-			const data = queryString.parse(location.search);
+			const { name, room } = queryString.parse(location.search);
 
 			socket = io(ENDPOINT);
 			console.log(socket);
-			console.log(data);
 
 			setName(name);
 			setRoom(room);
+
 			socket.emit('join', { name, room }, () => {});
 			return () => {
 				socket.emit('disconnect');
@@ -25,10 +29,40 @@ const ChatPage = ({ location }) => {
 		},
 		[ ENDPOINT, location.search ]
 	);
-	return <h1>Chat</h1>;
+	useEffect(
+		() => {
+			socket.on('message', (message) => {
+				//adding messages to messages array
+				setMessages([ ...messages, message ]);
+			});
+		},
+		[ messages ]
+	);
+
+	//function for sending messages
+	const sendMessage = (e) => {
+		e.preventDefault();
+
+		if (message) {
+			socket.emit('sendMessage', message, () => setMessage(''));
+		}
+	};
+
+	console.log(message, messages);
+	return (
+		<div className="outerContainer">
+			<div className="container">
+				<InfoBar room={room} />
+
+				{/* <input
+					value={message}
+					onChange={(event) => setMessage(event.target.value)}
+					onKeyPress={(event) => (event.key === 'Enter' ? sendMessage(event) : null)}
+				/> */}
+			</div>
+		</div>
+	);
 };
 export default ChatPage;
 
 //need to figure out how to pass user name to the room and not have users type it in
-
-//Okay, so the server are running and there is request to the socker server to the front end, however, it is being denied due to cors
