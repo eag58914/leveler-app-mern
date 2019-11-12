@@ -31,7 +31,7 @@ const JoinPage = () => {
 						onClick={(event) => (!name || !room ? event.preventDefault() : null)}
 						to={`/chat?name=${name}&room=${room}`}
 					>
-						<button className="button mt-20" type="submit">
+						<button className="btn btn-outline-primary" type="submit">
 							Sign In{' '}
 						</button>
 					</Link>

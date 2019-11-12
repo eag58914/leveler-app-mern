@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import('./NavBar.css');
 
 const NavBar = (props) => {
 	let nav = props.user ? (
@@ -14,17 +15,17 @@ const NavBar = (props) => {
 				Join a Chat
 			</Link>
 			&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-			<Link to="" className="NavBar-link" onClick={props.handleLogout}>
+			<Link to="" className="NavBar-Link" onClick={props.handleLogout}>
 				LOG OUT
 			</Link>
 		</div>
 	) : (
 		<div>
-			<Link to="/login" className="NavBar-link">
+			<Link to="/login" className="NavBar-Link">
 				LOG IN
 			</Link>
 			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<Link to="/signup" className="NavBar-link">
+			<Link to="/signup" className="NavBar-Link">
 				SIGN UP
 			</Link>
 		</div>
