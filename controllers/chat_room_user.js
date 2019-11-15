@@ -1,5 +1,5 @@
 const users = [];
-
+//need to move user data from users api to  chatroom api
 const addUser = ({ id, name, room }) => {
 	name = name.trim().toLowerCase();
 	room = room.trim().toLowerCase();

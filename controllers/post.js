@@ -47,7 +47,7 @@ async function update(req, res) {
 	res.status(200).json(updatedPosts);
 }
 
-//need to  figure  out editfunctionality
+//need to  figure  out edit functionality
 // function edit(req,res){
 //     Post.findByIdAndUpdate(req.params.id).then(post=>{
 //         res.status(200).json(post)
