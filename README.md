@@ -11,6 +11,7 @@
 * Express
 * MongoDB
 * Mongoose
+* Socket.io
   
 
 ## User Story
@@ -20,6 +21,7 @@
  * User should be able to click on a "Create Post" button and see a modal or navigate to a new page to create a new Post
  * User should be able to vote on a post
  * User should be able to vote on a Comment
+ * Be able to join a chat room and talk to others in real time 
 
 ## Stretch Goals
 * create different sublevels for topics of interest
