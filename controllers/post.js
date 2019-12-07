@@ -26,19 +26,31 @@ function getAllPosts(req, res) {
 }
 
 async function deletePost(req, res) {
-	const deletedPost = await Post.findByIdAndRemove(req.params.id);
+	try {
+		const deletedPost = await Post.findByIdAndRemove(req.params.id);
 
-	res.status(200).json(deletedPost);
+		res.status(200).json(deletedPost);
+	} catch (error) {
+		console.log(error);
+	}
 }
 async function showPost(req, res) {
-	const post = await Post.findById(req.params.id);
-	res.status(201).json(post);
+	try {
+		const post = await Post.findById(req.params.id);
+		res.status(201).json(post);
+	} catch (error) {
+		console.log(error);
+	}
 }
 async function addComment(req, res) {
-	const post = await Post.findById(req.body.id);
-	const newComment = await post.comments.push(req.body);
-	post.save();
-	res.status(201).json(newComment);
+	try {
+		const post = await Post.findById(req.body.id);
+		const newComment = await post.comments.push(req.body);
+		post.save();
+		res.status(201).json(newComment);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 async function update(req, res) {
