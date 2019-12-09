@@ -10,6 +10,7 @@ import AddPostPage from './pages/AddPostPage/AddPostPage';
 import AddCommentPage from './pages/AddCommentPage/AddCommentPage';
 import Chatpage from './pages/ChatPage/ChatPage';
 import Joinpage from './pages/Joinpage/JoinPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 //all post api imports
 import * as postAPI from './services/post-api';
@@ -65,7 +66,6 @@ class App extends Component {
 		);
 	};
 	handleAddComment = async (id, comment) => {
-		console.log(id);
 		await postAPI.getOne(id, comment);
 		this.setState(
 			{
@@ -131,6 +131,7 @@ class App extends Component {
 						)}
 					/>
 					<Route exact path="/add_post" render={() => <AddPostPage handleAddPost={this.handleAddPost} />} />
+					<Route exact path="/profile" render={() => <ProfilePage user={this.state.user} />} />
 					<Route
 						exact
 						path="/add_comment"
