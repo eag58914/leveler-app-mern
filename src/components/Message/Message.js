@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEmoji from 'react-emoji';
-import('./Message.css');
+import './Message.css';
 
 const Message = ({ message: { user, text }, names }) => {
 	let isSentbyCurrentUser = false;
