@@ -34,9 +34,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api', apiRouter);
 app.use('/join', chatRoomRouter);
 app.use('/api/profile', profile);
-
-//app.use('/api/images', imageRouter);
-
 app.use('/api/users', userRouter);
 
 app.get('/*', function(req, res) {
