@@ -13,9 +13,9 @@ const router = express.Router();
  * PROFILE IMAGE STORING STARTS
  */
 const s3 = new aws.S3({
-	accessKeyId: 'AKIAI4IYUCNFNIWHMB4Q',
-	secretAccessKey: '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',
-	Bucket: 'onclick'
+	accessKeyId: 'AKIATXK25IAWZ3QAZT4Y',
+	secretAccessKey: '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',
+	Bucket: 'leveler-version'
 });
 /**
  * Single Upload
@@ -23,7 +23,7 @@ const s3 = new aws.S3({
 const profileImgUpload = multer({
 	storage: multerS3({
 		s3: s3,
-		bucket: 'onclick',
+		bucket: 'leveler-version',
 		acl: 'public-read',
 		key: function(req, file, cb) {
 			cb(
@@ -98,7 +98,7 @@ router.post('/profile-img-upload', (req, res) => {
 const uploadsBusinessGallery = multer({
 	storage: multerS3({
 		s3: s3,
-		bucket: 'onclick',
+		bucket: 'leveler-version',
 		acl: 'public-read',
 		key: function(req, file, cb) {
 			cb(
