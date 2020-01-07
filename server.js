@@ -14,7 +14,8 @@ require('./config/database');
 var apiRouter = require('./routes/api/post_api');
 var userRouter = require('./routes/api/users');
 var chatRoomRouter = require('./routes/api/chat_api');
-// var imageRouter = require('./routes/api/images_uploader');
+const profile = require('./routes/api/profile');
+
 app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', 'localhost:5000');
 	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 //api routes
 app.use('/api', apiRouter);
 app.use('/join', chatRoomRouter);
+app.use('/api/profile', profile);
 
 //app.use('/api/images', imageRouter);
 
