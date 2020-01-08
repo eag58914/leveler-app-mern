@@ -40,13 +40,13 @@ app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 const port = process.env.PORT || 3001;
-const socketPort = process.env.PORT || 5000;
 
 app.listen(port, function() {
 	console.log(`Express app running on port ${port}`);
 });
 
 //socket connection and functions
+const socketPort = process.env.PORT || 5000;
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require(`./controllers/chat_room_user.js`);
 const server = http.createServer(app);
