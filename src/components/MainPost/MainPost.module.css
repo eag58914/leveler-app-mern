@@ -1,7 +1,8 @@
 .MainPost {
 	list-style: none;
-	background-color: #f8f8f6;
+	background-color: #191919;
 	padding: 10px;
+	color: #c3c6c8;
 }
 
 .ButtonLayout {
@@ -20,7 +21,7 @@
 	transform: rotate(180deg) scaleX(-1);
 }
 .Content {
-	color: black;
+	color: #c3c6c8;
 }
 .Comments {
 	border-style: solid;
