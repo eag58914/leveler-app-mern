@@ -99,9 +99,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Link to="/">
-					<h1>Leveler</h1>
-				</Link>
 				<header className="App-header">
 					<NavBar user={this.state.user} handleLogout={this.handleLogout} />
 				</header>
