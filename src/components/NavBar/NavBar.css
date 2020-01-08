@@ -1,4 +1,19 @@
 .NavBar-Link {
 	text-decoration: none;
-	color: black;
+	color: #d1d5d7;
+}
+.nav-bar {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 10px;
+	border: solid #2e2f2f;
+	background-color: #191919;
+	align-items: center;
+}
+.form-control {
+	width: 50em;
+	background-color: #232324;
+}
+.main-icon {
+	color: #d1d5d7;
 }
