@@ -8,7 +8,6 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 	const allComments = comments.map((comment) => {
 		return <p className={styles.Comments}>{comment.content}</p>;
 	});
-	console.log(votes, content, user, handleDeletePost);
 	return (
 		<div className="card col-sm-8" align="center">
 			<div className="card-body " align="center">
