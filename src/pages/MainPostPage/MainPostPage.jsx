@@ -1,9 +1,10 @@
 import React from 'react';
 import MainPost from '../../components/MainPost/MainPost';
+import style from './MainPostPage.module.css';
 
 function PostPageList(props) {
 	return (
-		<div>
+		<div className={style.main_page_background}>
 			<h3 align="center">All Posts</h3>
 			<div align="center">
 				{props.posts.map((item, index) => (
