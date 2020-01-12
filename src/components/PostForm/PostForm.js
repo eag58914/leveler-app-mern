@@ -39,7 +39,7 @@ class PostForm extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className={styles.inputFormStructure}>
 				<form className="post-form" align="center" onSubmit={this.handleSubmit}>
 					<div>
 						<label>Title</label>
@@ -52,19 +52,25 @@ class PostForm extends Component {
 						/>
 					</div>
 					<div>
-						<label>Post</label>
-						<input
-							type="text"
-							name="post"
-							onChange={this.handleOnChange}
-							value={this.state.post}
-							className=" col-sm-8"
-						/>
+						<div className="input-group">
+							<div className="input-group-prepend">
+								<span className="input-group-text">Write your post!</span>
+							</div>
+							<textarea
+								class="form-control"
+								aria-label="With textarea"
+								type="text"
+								name="post"
+								onChange={this.handleOnChange}
+								value={this.state.post}
+								className=" col-sm-8"
+							/>
+						</div>
 					</div>
 					<input type="submit" className="btn btn-outline-primary" />
 				</form>
 
-				<div className={styles.CancelButton}>
+				<div>
 					<Link to="/">
 						<div align="center">
 							<button class="btn btn-outline-danger">Cancel</button>

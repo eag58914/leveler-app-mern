@@ -5,7 +5,9 @@ import style from './MainPostPage.module.css';
 function PostPageList(props) {
 	return (
 		<div className={style.main_page_background}>
-			<h3 align="center">All Posts</h3>
+			<h1 className={style.allposts} align="center">
+				All Posts
+			</h1>
 			<div align="center">
 				{props.posts.map((item, index) => (
 					<MainPost
