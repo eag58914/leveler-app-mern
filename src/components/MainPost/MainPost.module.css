@@ -1,6 +1,6 @@
 .MainPost {
 	list-style: none;
-	background-color: #191919;
+	background-color: #1a1a1b;
 	padding: 10px;
 	color: #c3c6c8;
 }
@@ -21,10 +21,15 @@
 	transform: rotate(180deg) scaleX(-1);
 }
 .Content {
-	color: #c3c6c8;
+	color: #1a1a1b;
 }
 .Comments {
-	border-style: solid;
-	border-color: grey;
+	background-color: rgba(74, 74, 74, 0.214);
 	border-radius: 5px;
+}
+.all-posts {
+	color: #c3c6c8;
+}
+.Content {
+	color: #c3c6c8;
 }

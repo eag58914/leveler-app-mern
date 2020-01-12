@@ -1,6 +1,15 @@
 .CancelButton {
-	display: grid;
+	display: flexbox;
 }
 .SubmitButton {
 	display: grid;
+}
+.input-group {
+	background-color: aquamarine;
+}
+.inputFormStructure {
+	display: flexbox;
+	justify-content: center;
+	align-items: baseline;
+	padding: 10px;
 }
