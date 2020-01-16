@@ -51,29 +51,29 @@ class PostForm extends Component {
 							className="col-sm-4"
 						/>
 					</div>
-					<div>
-						<div className="input-group">
-							<div className="input-group-prepend">
-								<span className="input-group-text">Write your post!</span>
-							</div>
-							<textarea
-								class="form-control"
-								aria-label="With textarea"
-								type="text"
-								name="post"
-								onChange={this.handleOnChange}
-								value={this.state.post}
-								className=" col-sm-8"
-							/>
+
+					<div className="input-group">
+						<div className="input-group-prepend">
+							<span className="input-group-text">Write your post!</span>
 						</div>
+						<input
+							class="form-control"
+							aria-label="With textarea"
+							type="text"
+							name="post"
+							onChange={this.handleOnChange}
+							value={this.state.post}
+							className=" col-sm-8"
+						/>
 					</div>
+
 					<input type="submit" className="btn btn-outline-primary" />
 				</form>
 
 				<div>
 					<Link to="/">
 						<div align="center">
-							<button class="btn btn-outline-danger">Cancel</button>
+							<button className="btn btn-outline-danger">Cancel</button>
 						</div>
 					</Link>
 				</div>
