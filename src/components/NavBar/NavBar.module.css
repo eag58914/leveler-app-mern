@@ -1,8 +1,8 @@
-.NavBar-Link {
+.NavBarLink {
 	text-decoration: none;
 	color: #d1d5d7;
 }
-.nav-bar {
+.navBar {
 	display: flex;
 	justify-content: space-evenly;
 	padding: 10px;
@@ -10,10 +10,18 @@
 	background-color: #191919;
 	align-items: center;
 }
-.form-control {
+.formControl {
 	width: 50em;
 	background-color: #232324;
+	border-radius: 5%;
+	padding: 5px;
 }
-.main-icon {
+.mainIcon {
 	color: #d1d5d7;
+}
+.NavBarWelcome {
+	color: #d1d5d7;
+}
+.logoutDefault {
+	background-color: #191919;
 }
