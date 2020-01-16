@@ -46,15 +46,15 @@ app.listen(port, function() {
 });
 
 //socket connection and functions
-const socketPort = process.env.PORT || 5000;
+const socketPort = process.env.PORT || 3001;
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require(`./controllers/chat_room_user.js`);
 const server = http.createServer(app);
 const io = socketio(server);
 
-server.listen(socketPort, () => {
-	console.log(`Socketserver is running on port ${socketPort}`);
-});
+// server.listen(socketPort, () => {
+// 	console.log(`Socketserver is running on port ${socketPort}`);
+// });
 
 io.on('connect', (socket) => {
 	socket.on('join', ({ name, room }, callback) => {
