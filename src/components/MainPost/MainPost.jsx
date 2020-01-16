@@ -12,8 +12,8 @@ const MainPost = ({ content, user, id, handleDeletePost, votes, comments, client
 		<div className="card col-sm-8" align="center">
 			<div className="card-body " align="center">
 				<li className={styles.MainPost}>
+					{/* <p>{client}</p> */}
 					<h4>Title:</h4>
-					<p>{user}</p>
 					<h3>Post:</h3>
 					<p className={styles.Content}>{content}</p>
 					<div className={styles.ButtonLayout}>
