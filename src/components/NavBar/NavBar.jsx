@@ -13,9 +13,9 @@ const NavBar = (props) => {
 				Add a Post
 			</Link>
 
-			<Link to="/join" className="NavBar-Link">
+			{/* <Link to="/join" className="NavBar-Link">
 				Join a Chat
-			</Link>
+			</Link> */}
 
 			<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
 			<span className="NavBar-welcome">{props.user.name}</span>
