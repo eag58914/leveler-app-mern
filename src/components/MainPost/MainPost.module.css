@@ -3,7 +3,7 @@
 	background-color: #1a1a1b;
 	padding: 10px;
 	color: #c3c6c8;
-	height: 30vh;
+	height: 40vh;
 	width: 90vh;
 	border-style: solid;
 }
@@ -35,4 +35,12 @@
 }
 .Content {
 	color: #c3c6c8;
+}
+.VotingSystem {
+	display: flex;
+	padding: 10px;
+}
+.CommentSection {
+	display: flex;
+	flex-direction: column;
 }
