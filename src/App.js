@@ -85,17 +85,6 @@ class App extends Component {
 		});
 	};
 
-	//figuring out how to show a specific form
-	// handleGetPost = async (id) =>{
-	// 	console.log(id)
-	// 	await postAPI.getOne(id)
-	// 	this.setState(state=>({
-	// 		posts: state.posts
-	// 	}),
-	// 	() => this.props.history.push('/')
-	// 	)
-	// }
-
 	render() {
 		return (
 			<div className="App">
