@@ -22,7 +22,6 @@ class PostForm extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		// console.log(this.state);
 		this.props.handleAddPost(this.state);
 		this.setState({
 			author: '',
@@ -40,43 +39,36 @@ class PostForm extends Component {
 	render() {
 		return (
 			<div className={styles.inputFormStructure}>
-				<form className="post-form" align="center" onSubmit={this.handleSubmit}>
-					<div>
-						<label>Title</label>
+				<form align="center" onSubmit={this.handleSubmit}>
+					<div className={styles.authorInput}>
 						<input
+							placeholder="Title"
+							size="101"
 							type="text"
 							name="author"
 							onChange={this.handleOnChange}
 							value={this.state.author}
-							className="col-sm-4"
 						/>
 					</div>
 
-					<div className="input-group">
-						<div className="input-group-prepend">
-							<span className="input-group-text">Write your post!</span>
-						</div>
-						<input
-							class="form-control"
-							aria-label="With textarea"
+					<div className={styles.postInput}>
+						<textarea
+							placeholder="Write your thoughts!"
+							rows="10"
+							cols="100"
 							type="text"
 							name="post"
 							onChange={this.handleOnChange}
 							value={this.state.post}
-							className=" col-sm-8"
 						/>
 					</div>
-
-					<input type="submit" className="btn btn-outline-primary" />
+					<div className={styles.buttonFormat}>
+						<Link to="/">
+							<button className={styles.cancelButton}>Cancel</button>
+						</Link>
+						<input type="submit" className={styles.submitButton} />
+					</div>
 				</form>
-
-				<div>
-					<Link to="/">
-						<div align="center">
-							<button className="btn btn-outline-danger">Cancel</button>
-						</div>
-					</Link>
-				</div>
 			</div>
 		);
 	}
