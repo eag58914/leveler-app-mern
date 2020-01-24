@@ -11,31 +11,31 @@ const MainPost = ({ content, id, handleDeletePost, votes, comments, client, hand
 	return (
 		<div>
 			<li className={styles.MainPost}>
+				{client ? (
+					<div onClick={() => handleDeletePost(id)} className={styles.deletePost}>
+						X
+					</div>
+				) : null}
+				<div className={styles.VotingSystem}>
+					<div className={styles.UpVote} alt="" />
+					<div>{votes}</div>
+					<div className={styles.DownVote} alt="" />
+				</div>
 				<h4>Title:</h4>
 				<h3>Post:</h3>
 				<p className={styles.Content}>{content}</p>
-				<div className={styles.VotingSystem}>
-					<input className={styles.UpVote} type="image" src="images/upvote-icon-17.jpg" alt="" />
-					<p>{votes}</p>
-					<input className={styles.DownVote} type="image" src="images/upvote-icon-17.jpg" alt="" />
-				</div>
-				{client ? (
-					<Link to="/add_comment">
-						<button className="btn btn-outline-primary" onClick={() => handleId(id)}>
-							add comment
-						</button>
-					</Link>
-				) : null}
 
-				{client ? (
-					<button onClick={() => handleDeletePost(id)} className="btn btn-outline-danger">
-						X
-					</button>
-				) : null}
 				<div className={styles.CommentSection}>
-					<h6>Comments:</h6>
-					<div>{allComments}</div>
+					{client ? (
+						<Link to="/add_comment">
+							<div className={styles.addComment} onClick={() => handleId(id)}>
+								add comment
+							</div>
+						</Link>
+					) : null}
 				</div>
+				<h6>Comments:</h6>
+				<div>{allComments}</div>
 			</li>
 		</div>
 	);
