@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './PostForm.module.css';
 
 class PostForm extends Component {
 	constructor(props) {
@@ -38,9 +37,9 @@ class PostForm extends Component {
 
 	render() {
 		return (
-			<div className={styles.inputFormStructure}>
+			<div>
 				<form align="center" onSubmit={this.handleSubmit}>
-					<div className={styles.authorInput}>
+					<div>
 						<input
 							placeholder="Title"
 							size="101"
@@ -51,7 +50,7 @@ class PostForm extends Component {
 						/>
 					</div>
 
-					<div className={styles.postInput}>
+					<div>
 						<textarea
 							placeholder="Write your thoughts!"
 							rows="10"
@@ -62,11 +61,11 @@ class PostForm extends Component {
 							value={this.state.post}
 						/>
 					</div>
-					<div className={styles.buttonFormat}>
+					<div>
 						<Link to="/">
-							<button className={styles.cancelButton}>Cancel</button>
+							<button>Cancel</button>
 						</Link>
-						<input type="submit" className={styles.submitButton} />
+						<input type="submit" />
 					</div>
 				</form>
 			</div>
