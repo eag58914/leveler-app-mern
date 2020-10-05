@@ -10,11 +10,13 @@ var commentSchema = new Schema(
 );
 
 var PostSchema = new Schema({
+	Id:{ type:Number},
 	author: { type: String },
 	category: { type: String },
 	post: { type: String },
 	votes: { type: Number },
-	comments: [ commentSchema ]
+	status:{type: String},
+	comments: [commentSchema ]
 });
 
 module.exports = mongoose.model('Blog', PostSchema);
