@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './Comment.Form.module.css';
 import { Link } from 'react-router-dom';
 class commentForm extends Component {
 	constructor(props) {
@@ -24,7 +23,7 @@ class commentForm extends Component {
 
 	render() {
 		return (
-			<div className={styles.CommentSubmit} align="center">
+			<div>
 				<div>
 					<form onSubmit={this.handleSubmit}>
 						<label>Comment</label>

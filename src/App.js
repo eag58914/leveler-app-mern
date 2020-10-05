@@ -8,7 +8,7 @@ import NavBar from '../src/components/NavBar/NavBar';
 import MainPostPage from './pages/MainPostPage/MainPostPage';
 import AddPostPage from './pages/AddPostPage/AddPostPage';
 import AddCommentPage from './pages/AddCommentPage/AddCommentPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
+
 
 //all post api imports
 import * as postAPI from './services/post-api';
@@ -87,8 +87,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
+			<div>
+				<header>
 					<NavBar user={this.state.user} handleLogout={this.handleLogout} />
 				</header>
 				<Switch>
@@ -117,7 +117,7 @@ class App extends Component {
 						)}
 					/>
 					<Route exact path="/add_post" render={() => <AddPostPage handleAddPost={this.handleAddPost} />} />
-					<Route exact path="/profile" render={() => <ProfilePage user={this.state.user} />} />
+					
 					<Route
 						exact
 						path="/add_comment"

@@ -1,14 +1,14 @@
 import React from 'react';
 import MainPost from '../../components/MainPost/MainPost';
-import style from './MainPostPage.module.css';
+
 
 function PostPageList(props) {
 	return (
-		<div className={style.main_page_background}>
-			<h1 className={style.allposts} align="center">
+		<div>
+			<h1>
 				All Posts
 			</h1>
-			<div align="center">
+			<div>
 				{props.posts.map((item, index) => (
 					<MainPost
 						key={item._id}

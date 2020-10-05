@@ -1,34 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './MainPost.module.css';
+
 
 import { Link } from 'react-router-dom';
 
 const MainPost = ({ content, id, handleDeletePost, votes, comments, client, handleId }) => {
 	const allComments = comments.map((comment) => {
-		return <p className={styles.Comments}>{comment.content}</p>;
+		return <p>{comment.content}</p>;
 	});
 	return (
 		<div>
-			<li className={styles.MainPost}>
+			<li>
 				{client ? (
-					<div onClick={() => handleDeletePost(id)} className={styles.deletePost}>
+					<div onClick={() => handleDeletePost(id)}>
 						X
 					</div>
 				) : null}
-				<div className={styles.VotingSystem}>
-					<div className={styles.UpVote} alt="" />
+				<div>
+					<div alt="" />
 					<div>{votes}</div>
-					<div className={styles.DownVote} alt="" />
+					<div alt="" />
 				</div>
 				<h4>Title:</h4>
 				<h3>Post:</h3>
-				<p className={styles.Content}>{content}</p>
+				<p>{content}</p>
 
-				<div className={styles.CommentSection}>
+				<div>
 					{client ? (
 						<Link to="/add_comment">
-							<div className={styles.addComment} onClick={() => handleId(id)}>
+							<div onClick={() => handleId(id)}>
 								add comment
 							</div>
 						</Link>
