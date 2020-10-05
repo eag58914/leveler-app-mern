@@ -10,7 +10,6 @@ require('./config/database');
 
 var apiRouter = require('./routes/api/post_api');
 var userRouter = require('./routes/api/users');
-var chatRoomRouter = require('./routes/api/chat_api');
 const profile = require('./routes/api/profile');
 
 app.use(function(req, res, next) {
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //api routes
 app.use('/api', apiRouter);
-app.use('/join', chatRoomRouter);
 app.use('/api/profile', profile);
 app.use('/api/users', userRouter);
 
