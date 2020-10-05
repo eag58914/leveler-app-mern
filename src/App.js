@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginPage from './pages/LoginPage/LoginPage';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SignupPage from './pages/SignupPage/SignUpPage';
 import userService from './services/userServices';
 import NavBar from '../src/components/NavBar/NavBar';
@@ -93,13 +93,13 @@ class App extends Component {
 				</header>
 				<Switch>
 					<Route
-						path="/login"
+						 exact path="/login"
 						render={({ history }) => (
 							<LoginPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
 						)}
 					/>
 					<Route
-						path="/signup"
+						exact path="/signup"
 						render={({ history }) => (
 							<SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
 						)}
