@@ -8,8 +8,6 @@ import NavBar from '../src/components/NavBar/NavBar';
 import MainPostPage from './pages/MainPostPage/MainPostPage';
 import AddPostPage from './pages/AddPostPage/AddPostPage';
 import AddCommentPage from './pages/AddCommentPage/AddCommentPage';
-import Chatpage from './pages/ChatPage/ChatPage';
-import Joinpage from './pages/Joinpage/JoinPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 //all post api imports
@@ -27,7 +25,9 @@ class App extends Component {
 		const posts = await postAPI.getAll(); // this comes back as an arry of objects
 		this.setState({
 			posts
+		
 		});
+	
 	}
 
 	handleShowForm = (event) => {
@@ -107,7 +107,7 @@ class App extends Component {
 					<Route
 						exact
 						path="/"
-						render={({ history }) => (
+						render={() => (
 							<MainPostPage
 								posts={this.state.posts}
 								handleDeletePost={this.handleDeletePost}
@@ -123,8 +123,6 @@ class App extends Component {
 						path="/add_comment"
 						render={() => <AddCommentPage id={this.state.id} handleAddComment={this.handleAddComment} />}
 					/>
-					<Route exact path="/chat" component={Chatpage} />
-					<Route exact path="/join" component={Joinpage} />
 				</Switch>
 			</div>
 		);
