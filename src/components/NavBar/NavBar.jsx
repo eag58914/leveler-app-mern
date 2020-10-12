@@ -1,44 +1,49 @@
 import React from 'react';
+import { Navbar, Nav, Form, Button, FormControl } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
 	let nav = props.user ? (
-		<div>
-			<Link to="/">
-				<h1>Leveler</h1>
-			</Link>
+	
+	  <Navbar bg="primary" variant="dark">
+    <Navbar.Brand href="/">Leveler</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link to="/add_post">Add Post</Nav.Link>
+    </Nav>
 
-			<Link to="/add_post">
-				Add a Post
-			</Link>
 
-			{/* <Link to="/join" className="NavBar-Link">
-				Join a Chat
-			</Link> */}
-
-			<input  type="text" placeholder="Search" aria-label="Search" />
-			<span>{props.user.name}</span>
-			<Link to="" className="NavBar-Link" onClick={props.handleLogout}>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-light">Search</Button>
+    </Form>
+	
+		
+			<Nav.Link to="" onClick={props.handleLogout}>
 				LOG OUT
-			</Link>
-		</div>
+			</Nav.Link>
+
+			</Navbar>
+			
 	) : (
 		<div>
-			<Link to="/login">
-				LOG IN
-			</Link>
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<Link to="/signup">
-				SIGN UP
-			</Link>
+		<Nav className="justify-content-center" activeKey="/home">
+    <Nav.Item>
+      <Nav.Link href="/login">Log In</Nav.Link>
+    </Nav.Item>
+    <Nav.Item>
+      <Nav.Link href="/signup">Sign Up</Nav.Link>
+    </Nav.Item>
+  </Nav>
 		</div>
 	);
 
 	return (
-		<div className="navBar" align="center">
+		<div >
 			{nav}
 		</div>
 	);
+
 };
 
 export default NavBar;
