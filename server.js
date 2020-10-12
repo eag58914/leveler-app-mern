@@ -10,7 +10,7 @@ require('./config/database');
 
 var apiRouter = require('./routes/api/post_api');
 var userRouter = require('./routes/api/users');
-const profile = require('./routes/api/profile');
+
 
 app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', 'localhost:3000');
@@ -27,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //api routes
 app.use('/api', apiRouter);
-app.use('/api/profile', profile);
 app.use('/api/users', userRouter);
 
 app.get('/*', function(req, res) {
